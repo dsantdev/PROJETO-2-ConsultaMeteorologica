@@ -1,0 +1,351 @@
+/* ===== Variáveis ===== */
+:root {
+  --azul-profundo: #14407a;
+  --azul: #2f6fd0;
+  --azul-ceu: #dcecff;
+  --azul-claro: #f1f7ff;
+  --amarelo: #ffc933;
+  --amarelo-forte: #f5b400;
+  --amarelo-suave: #fff1bd;
+
+  --texto: #17294a;
+  --texto-suave: #566a8a;
+  --erro: #a62b2b;
+  --erro-fundo: #fde7e4;
+  --sucesso: #1d6b45;
+  --sucesso-fundo: #e1f4e9;
+
+  --fonte-titulo: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --fonte-texto: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+
+  --sombra: 0 6px 18px rgba(20, 64, 122, 0.12);
+  --espaco: 1rem;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--texto);
+  background: var(--azul-ceu);
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-bottom: var(--espaco);
+  font-size: 1.3rem;
+  color: var(--azul-profundo);
+}
+
+a {
+  color: var(--azul);
+}
+
+:focus-visible {
+  outline: 3px solid var(--amarelo-forte);
+  outline-offset: 2px;
+}
+
+/* ===== Cabeçalho ===== */
+.cabecalho {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem var(--espaco) 5rem;
+  background: var(--azul-profundo);
+  border-radius: 0 0 48px 48px;
+  text-align: center;
+}
+
+/* o sol: único elemento decorativo da página */
+.cabecalho::before {
+  content: "";
+  position: absolute;
+  top: -48px;
+  right: 8%;
+  width: 140px;
+  height: 140px;
+  background: var(--amarelo);
+  border-radius: 50%;
+  box-shadow: 0 0 0 18px rgba(255, 201, 51, 0.25);
+}
+
+.cabecalho h1 {
+  position: relative;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: #fff;
+}
+
+/* ===== Layout ===== */
+.container {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 760px;
+  margin: -3rem auto 0;
+  padding: 0 var(--espaco) 2rem;
+}
+
+.container > section {
+  padding: 1.4rem;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: var(--sombra);
+}
+
+/* ===== Busca ===== */
+.busca h2 {
+  font-size: 1.1rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+label {
+  flex-basis: 100%;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+input[type="text"] {
+  flex: 1 1 220px;
+  padding: 0.75rem 1.1rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--azul-claro);
+  border: 2px solid var(--azul-ceu);
+  border-radius: 999px;
+}
+
+input[type="text"]::placeholder {
+  color: #8a9bb5;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--azul);
+}
+
+/* ===== Botões ===== */
+button {
+  padding: 0.7rem 1.4rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--azul-profundo);
+  background: var(--amarelo);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s;
+}
+
+button:hover {
+  background: var(--amarelo-forte);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* botão discreto: use em "Ver clima" */
+.btn-secundario {
+  padding: 0.45rem 1rem;
+  color: var(--azul);
+  background: transparent;
+  border: 2px solid var(--azul);
+}
+
+.btn-secundario:hover {
+  color: #fff;
+  background: var(--azul);
+}
+
+/* botão de texto: use em "Remover" */
+.btn-remover {
+  padding: 0.45rem 0.8rem;
+  font-weight: 600;
+  color: var(--erro);
+  background: transparent;
+}
+
+.btn-remover:hover {
+  background: var(--erro-fundo);
+}
+
+/* ===== Mensagens de estado ===== */
+.mensagem {
+  display: none;
+  padding: 0.8rem 1.2rem;
+  font-weight: 600;
+  border-radius: 16px;
+}
+
+.mensagem.visivel {
+  display: block;
+}
+
+.mensagem.carregando {
+  color: var(--azul-profundo);
+  background: var(--amarelo-suave);
+}
+
+.mensagem.sucesso {
+  color: var(--sucesso);
+  background: var(--sucesso-fundo);
+}
+
+.mensagem.erro {
+  color: var(--erro);
+  background: var(--erro-fundo);
+}
+
+.vazio {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+/* ===== Listas (resultados e favoritas) ===== */
+.lista {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  background: var(--azul-claro);
+  border-radius: 14px;
+}
+
+/* ===== Condições atuais (destaque da página) ===== */
+.container > .clima-atual {
+  color: #fff;
+  background: var(--azul);
+  box-shadow: 0 10px 24px rgba(20, 64, 122, 0.25);
+}
+
+.clima-atual h2 {
+  color: var(--amarelo);
+}
+
+.clima-atual .vazio {
+  color: #d6e6ff;
+}
+
+/* classes sugeridas para montar o painel no JavaScript */
+.cidade-nome {
+  margin-bottom: 0.25rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+}
+
+.temperatura {
+  font-family: var(--fonte-titulo);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--amarelo);
+}
+
+.descricao-clima {
+  margin: 0.25rem 0 1rem;
+  font-size: 1.1rem;
+}
+
+.detalhes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #e6f0ff;
+}
+
+/* ===== Previsão ===== */
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.cartao {
+  padding: 0.9rem 0.7rem;
+  text-align: center;
+  background: var(--azul-claro);
+  border-radius: 18px;
+}
+
+/* o primeiro cartão é o dia de hoje */
+.cartao:first-child {
+  background: var(--amarelo-suave);
+}
+
+.cartao h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: var(--azul-profundo);
+}
+
+.cartao p {
+  margin: 0.2rem 0;
+  font-size: 0.92rem;
+}
+
+/* ===== Rodapé ===== */
+.rodape {
+  padding: 0 var(--espaco) 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 480px) {
+  .cabecalho {
+    padding-bottom: 4.5rem;
+    border-radius: 0 0 32px 32px;
+  }
+
+  .cabecalho::before {
+    right: -30px;
+  }
+
+  .container > section {
+    padding: 1.1rem;
+  }
+
+  .temperatura {
+    font-size: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+
+  button:active {
+    transform: none;
+  }
+}

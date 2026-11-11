@@ -1,12 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta Meteorológica</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta Meteorológica</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- 1. Cabeçalho com o nome da aplicação -->
+  <header class="cabecalho">
     <h1>Consulta Meteorológica</h1>
-    <p>Veja as condições meteorológicas da sua região!</p>
+  </header>
+
+  <main class="container">
+
+    <!-- 2. Formulário de pesquisa de cidades -->
+    <section class="busca" aria-labelledby="titulo-busca">
+      <h2 id="titulo-busca">Pesquisar cidade</h2>
+      <form id="form-busca">
+        <label for="campo-cidade">Nome da cidade</label>
+        <input type="text" id="campo-cidade" name="cidade" placeholder="Ex.: Porto Alegre" autocomplete="off">
+        <button type="submit">Pesquisar</button>
+      </form>
+    </section>
+
+    <!-- 3. Área de mensagens: carregamento, sucesso e erro -->
+    <div id="mensagem" class="mensagem" role="status" aria-live="polite"></div>
+
+    <!-- 4. Resultados da pesquisa de localidades -->
+    <section class="resultados" aria-labelledby="titulo-resultados">
+      <h2 id="titulo-resultados">Localidades encontradas</h2>
+      <ul id="lista-resultados" class="lista"></ul>
+    </section>
+
+    <!-- 5. Painel das condições atuais -->
+    <section class="clima-atual" aria-labelledby="titulo-atual">
+      <h2 id="titulo-atual">Condições atuais</h2>
+      <div id="painel-atual">
+        <p class="vazio">Nenhuma cidade selecionada.</p>
+      </div>
+    </section>
+
+    <!-- 6. Previsão dos próximos dias -->
+    <section class="previsao" aria-labelledby="titulo-previsao">
+      <h2 id="titulo-previsao">Próximos dias</h2>
+      <div id="lista-previsao" class="cartoes"></div>
+    </section>
+
+    <!-- 7. Cidades favoritas -->
+    <section class="favoritas" aria-labelledby="titulo-favoritas">
+      <h2 id="titulo-favoritas">Cidades favoritas</h2>
+      <ul id="lista-favoritas" class="lista"></ul>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Dados meteorológicos por <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
