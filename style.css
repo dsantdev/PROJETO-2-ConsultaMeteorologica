@@ -1,4 +1,3 @@
-/* ===== Variáveis ===== */
 :root {
   --azul-profundo: #14407a;
   --azul: #2f6fd0;
@@ -22,7 +21,7 @@
   --espaco: 1rem;
 }
 
-/* ===== Base ===== */
+/* Base */
 * {
   box-sizing: border-box;
 }
@@ -58,7 +57,7 @@ a {
   outline-offset: 2px;
 }
 
-/* ===== Cabeçalho ===== */
+/* Cabeçalho */
 .cabecalho {
   position: relative;
   overflow: hidden;
@@ -87,7 +86,7 @@ a {
   color: #fff;
 }
 
-/* ===== Layout ===== */
+/* Layout */
 .container {
   display: grid;
   gap: 1.25rem;
@@ -103,7 +102,7 @@ a {
   box-shadow: var(--sombra);
 }
 
-/* ===== Busca ===== */
+/* Busca */
 .busca h2 {
   font-size: 1.1rem;
 }
@@ -140,7 +139,7 @@ input[type="text"]:focus {
   border-color: var(--azul);
 }
 
-/* ===== Botões ===== */
+/* Botões  */
 button {
   padding: 0.7rem 1.4rem;
   font: inherit;
@@ -186,7 +185,7 @@ button:active {
   background: var(--erro-fundo);
 }
 
-/* ===== Mensagens de estado ===== */
+/* Mensagens de estado */
 .mensagem {
   display: none;
   padding: 0.8rem 1.2rem;
@@ -218,7 +217,7 @@ button:active {
   color: var(--texto-suave);
 }
 
-/* ===== Listas (resultados e favoritas) ===== */
+/* Listas (resultados e favoritas) */
 .lista {
   display: grid;
   gap: 0.6rem;
@@ -238,7 +237,7 @@ button:active {
   border-radius: 14px;
 }
 
-/* ===== Condições atuais (destaque da página) ===== */
+/* Condições atuais (destaque da página) */
 .container > .clima-atual {
   color: #fff;
   background: var(--azul);
@@ -282,7 +281,7 @@ button:active {
   color: #e6f0ff;
 }
 
-/* ===== Previsão ===== */
+/* Previsão */
 .cartoes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -312,7 +311,7 @@ button:active {
   font-size: 0.92rem;
 }
 
-/* ===== Rodapé ===== */
+/* Rodapé */
 .rodape {
   padding: 0 var(--espaco) 2rem;
   text-align: center;
@@ -320,7 +319,7 @@ button:active {
   color: var(--texto-suave);
 }
 
-/* ===== Responsividade ===== */
+/* ]]]Responsividade] */
 @media (max-width: 480px) {
   .cabecalho {
     padding-bottom: 4.5rem;
