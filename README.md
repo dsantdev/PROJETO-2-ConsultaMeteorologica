@@ -1,5 +1,5 @@
-**Projeto de Consulta Meteorológica
-**
+**Projeto de Consulta Meteorológica**
+
 Aplicação web que permite pesquisar cidades de todo o mundo e consultar as condições climáticas atuais e a previsão para os próximos cinco dias. Os dados são obtidos da API pública Open-Meteo, por meio de duas requisições dependentes: geocodificação da cidade e consulta do clima.
 
 Funcionalidades:
